@@ -1,0 +1,118 @@
+section {
+  width: 100vw;
+  height: 100vh;
+  //background-color: aliceblue;
+  position: relative;
+  h1{
+      position: absolute;
+      top: 2%;
+      left: 10%;
+      font-size: 3em;
+      color: rgb(124, 124, 121);
+      text-transform: uppercase;
+  }
+  .notebook-container {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    //background-color: beige;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .left-side-wrapper {
+      width: 45%;
+      height: 80%;
+      background-color: rgb(184, 184, 184);
+      border-radius: 8px;
+      .write-notes {
+        width: 100%;
+        height: 100%;
+        //background-color: blanchedalmond;
+        form {
+          width: 90%;
+          margin: auto;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          label {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: 500;
+          }
+          input {
+            width: 80%;
+            height: 2.3rem;
+            border-radius: 8px;
+          }
+          textarea {
+            width: 100%;
+            height: 10rem;
+            border-radius: 8px;
+          }
+          button {
+            width: 100px;
+            height: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            outline: none;
+            border: transparent;
+            cursor: pointer;
+            background-color: rgb(23, 190, 73);
+            color: whitesmoke;
+            font-size: 1.1em;
+          }
+        }
+      }
+    }
+    .right-side-wrapper {
+      width: 45%;
+      height: 80%;
+      //background-color: rgb(114, 108, 108);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      .filter-notes {
+        width: 100%;
+        height: 20%;
+        background-color: rgb(95, 95, 97);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        h5 {
+          width: 100%;
+          //background-color: whitesmoke;
+          height: 2rem;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          font-size: 1.5em;
+          color: whitesmoke;
+        }
+        .filter-logic-container{
+            width: 100%;
+            height: 68%;
+        }
+      }
+      .display-notes {
+        width: 100%;
+        height: 80%;
+        background-color: rgb(196, 195, 195);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        h2{
+            width: 100%;
+            background-color: rgb(119, 118, 119);
+            text-transform: uppercase;
+        }
+        .display-notes-logic-container{
+            width: 90%;
+            margin: auto;
+            height: 90%;
+            background-color: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+}
