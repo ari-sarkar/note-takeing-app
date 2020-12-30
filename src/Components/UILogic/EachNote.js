@@ -18,12 +18,12 @@ const EachNote = ({
   useEffect(() => {
     if (note) {
       setisClicked(false);
-      ///logic
+      ///logic //
       const notes = document.querySelector(".note-list");
       setnotelist(notes);
       const lists = document.createElement("li");
       lists.classList.add("note");
-      lists.innerHTML = `<div className="dateandtime" data-date="${date}" data-month="${month}" data-year=${year} data-hour=${hour} data-minute=${minute} contentEditable="true"><b>${title}:</b> ${note}</div><br><p>${date}/${month}/${year} ${hour}:${minute}</p>`;
+      lists.innerHTML = `${date}/${month}/${year} ${hour}:${minute}<div className="dateandtime" data-date="${date}" data-month="${month}" data-year=${year} data-hour=${hour} data-minute=${minute} contentEditable="true"><b>${title}:</b> ${note}</div>`;
       const buttonDelete = document.createElement("button");
       buttonDelete.classList.add("delete-button");
       buttonDelete.innerHTML = "Del";
@@ -36,6 +36,7 @@ const EachNote = ({
       setnotelist(notes.childNodes);
       settitle("");
       setnote("");
+      //console.log(notes.childNodes[0].innerText);
     }
   }, [
     setisClicked,
@@ -48,6 +49,7 @@ const EachNote = ({
     minute,
     setnote,
     settitle,
+    notelist
   ]);
 
   return (
@@ -55,7 +57,12 @@ const EachNote = ({
       <div className="filter-notes">
         <h5>Filter By</h5>
         <div className="filter-logic-container">
-          <FilterLogic notelist={notelist} setisClicked={setisClicked} title={title} note={note}/>
+          <FilterLogic
+            notelist={notelist}
+            setisClicked={setisClicked}
+            title={title}
+            note={note}
+          />
         </div>
       </div>
       <ul className="note-list"></ul>

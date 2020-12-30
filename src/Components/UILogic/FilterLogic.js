@@ -5,10 +5,10 @@ const FilterLogic = ({ notelist, setisClicked, title, note }) => {
   const [weekValue, setweekValue] = useState("");
   const [monthValue, setmonthValue] = useState("");
   const [yearValue, setyearValue] = useState("");
-  const [isbtnClicked, setisbtnClicked] = useState(false);
+  const [newArray, setnewArray] = useState([]);
   useEffect(() => {
     const data = [...notelist];
-    const newData = data.map(item => item.childNodes[0]);
+    const newData = data.map(item => item.childNodes[1]);
     setnoteData(newData);
     //console.log(newData)
     ////////
@@ -31,8 +31,43 @@ const FilterLogic = ({ notelist, setisClicked, title, note }) => {
   }, [notelist, weekValue, monthValue, yearValue]);
 
   ///////////New  Old///////////////
-
-
+  const sortbyOld=(e) => {
+    const data = [...notelist];
+    const output = data.map(item => item.childNodes[0]);
+    output.sort((a, b) => {
+      if (b.textContent > a.textContent) {
+        console.log(output, "1");
+        return 1;
+      } else if (a.textContent > b.textContent) {
+        console.log(output, "--1");
+        return -1;
+      } else {
+        console.log(0);
+        return 0;
+      }
+    });
+    
+    setnewArray(output)
+  }
+ 
+  const sortbyNew=(e) => {
+    const data = [...notelist];
+    const output = data.map(item => item.childNodes[0]);
+    output.sort((a, b) => {
+      if (b.textContent < a.textContent) {
+        console.log(output, "1");
+        return 1;
+      } else if (a.textContent < b.textContent) {
+        console.log(output, "--1");
+        return -1;
+      } else {
+        //console.log(0);
+        return 0;
+      }
+    });
+    setnewArray(output)
+  }
+console.log(newArray)
   return (
     <div className="filter-logic-wrapper">
       {/* WMY = Week / Month/ Year */}
@@ -56,10 +91,10 @@ const FilterLogic = ({ notelist, setisClicked, title, note }) => {
           onChange={e => setyearValue(e.target.value)}
         />
       </div>
-       {/* NO = New / Old */}
+      {/* NO = New / Old */}
       <div className="filter-by-NO">
-        <button onClick={() =>setisbtnClicked(!isbtnClicked)}>New</button>
-        {/* <button onClick={sortbyOld}>Old</button> */}
+        <button onClick={sortbyNew}>New</button>
+        <button onClick={sortbyOld}>Old</button>
       </div>
     </div>
   );
