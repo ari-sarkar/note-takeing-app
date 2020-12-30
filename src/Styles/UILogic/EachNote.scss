@@ -31,8 +31,12 @@
       font-size: 1.1em;
       //overflow: scroll;
       div{
-        width: 80%;
-        height: 2rem;
+        width: 400px;
+        height: 50px;
+        overflow: hidden;
+      }
+      p{
+        font-size: 9px;
       }
       button{
         width: 35px;

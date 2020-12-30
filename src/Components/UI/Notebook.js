@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../../Styles/UI/Notebook.scss";
 import EachNote from "../UILogic/EachNote";
 const Notebook = () => {
-  const [title, settitle] = useState(null);
-  const [note, setnote] = useState(null);
+  const [title, settitle] = useState("");
+  const [note, setnote] = useState("");
   const [isClicked, setisClicked] = useState(false);
   const AddNote = e => {
     e.preventDefault();
