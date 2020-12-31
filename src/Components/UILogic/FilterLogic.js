@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../../Styles/UILogic/FilterLogic.scss";
-const FilterLogic = ({ notelist, setisClicked, title, note }) => {
+const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld}) => {
   const [noteData, setnoteData] = useState([]);
   const [weekValue, setweekValue] = useState("");
   const [monthValue, setmonthValue] = useState("");
   const [yearValue, setyearValue] = useState("");
-  const [newArray, setnewArray] = useState([]);
+  
   useEffect(() => {
     const data = [...notelist];
     const newData = data.map(item => item.childNodes[1]);
@@ -30,50 +30,8 @@ const FilterLogic = ({ notelist, setisClicked, title, note }) => {
     });
   }, [notelist, weekValue, monthValue, yearValue]);
 
-  ///////////New  Old///////////////
-  const sortbyOld=(e) => {
-    const data = [...notelist];
-    const output = data.map(item => item.childNodes);
-    output.sort((a, b) => {
-      if (b[0].textContent > a[0].textContent) {
-        console.log(output.style,"1");
-        return 1;
-      } else if (a[0].textContent > b[0].textContent) {
-        console.log(output, "--1");
-        const res = output.forEach(item => (
-        <li>{item}</li>
-        )) 
-        return -1;
-      } else {
-        console.log(0);
-        return 0;
-      }
-    });
-    
-    setnewArray(output)
-  }
- 
-  const sortbyNew=(e) => {
-    const data = [...notelist];
-    const output = data.map(item => <li>{item.childNodes}</li>);
-    console.log(output)
-//     output.sort((a, b) => {
-//       if (b[0].textContent < a[0].textContent) {
-//         console.log(output, "1");
-//         return 1;
-//       } else if (a[0].textContent < b[0].textContent) {
-//         console.log(output, "--1");
-//         return -1;
-//       } else {
-//         // console.log(0);
-//         return 0;
-//       }
-//     });
-//     setnewArray(output)
-  }
-// console.log(newArray)
   return (
-    <div className="filter-logic-wrapper">
+    <item className="filter-logic-wrapper">
       {/* WMY = Week / Month/ Year */}
       <div className="filter-by-WMY">
         <input
@@ -100,7 +58,10 @@ const FilterLogic = ({ notelist, setisClicked, title, note }) => {
         <button onClick={sortbyNew}>New</button>
         <button onClick={sortbyOld}>Old</button>
       </div>
-    </div>
+      <div>
+        {/* {item} */}
+      </div>
+    </item>
   );
 };
 
