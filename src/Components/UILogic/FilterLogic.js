@@ -57,8 +57,8 @@ const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld
       </div>
       {/* NO = New / Old */}
       <div className="filter-by-NO">
-        <button onClick={sortbyNew}>New</button>
-        <button onClick={sortbyOld}>Old</button>
+        <button value="asen"onClick={sortbyNew}>New</button>
+        <button  onClick={sortbyOld}>Old</button>
       </div>
       <div>
         {/* {item} */}

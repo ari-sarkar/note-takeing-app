@@ -9,14 +9,14 @@
   .note-list {
     width: 100%;
     margin: auto;
-    height: 100%;
+    height: auto;
     ///background-color: wheat;
     padding-top: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: flex-start;
-    //overflow-y: scroll;
+    overflow-y: scroll;
     //position: relative;
     padding: 10px;
     .note{
