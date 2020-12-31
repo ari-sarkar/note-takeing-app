@@ -33,13 +33,16 @@ const FilterLogic = ({ notelist, setisClicked, title, note }) => {
   ///////////New  Old///////////////
   const sortbyOld=(e) => {
     const data = [...notelist];
-    const output = data.map(item => item.childNodes[0]);
+    const output = data.map(item => item.childNodes);
     output.sort((a, b) => {
-      if (b.textContent > a.textContent) {
-        console.log(output, "1");
+      if (b[0].textContent > a[0].textContent) {
+        console.log(output.style,"1");
         return 1;
-      } else if (a.textContent > b.textContent) {
+      } else if (a[0].textContent > b[0].textContent) {
         console.log(output, "--1");
+        const res = output.forEach(item => (
+        <li>{item}</li>
+        )) 
         return -1;
       } else {
         console.log(0);
@@ -52,22 +55,23 @@ const FilterLogic = ({ notelist, setisClicked, title, note }) => {
  
   const sortbyNew=(e) => {
     const data = [...notelist];
-    const output = data.map(item => item.childNodes[0]);
-    output.sort((a, b) => {
-      if (b.textContent < a.textContent) {
-        console.log(output, "1");
-        return 1;
-      } else if (a.textContent < b.textContent) {
-        console.log(output, "--1");
-        return -1;
-      } else {
-        //console.log(0);
-        return 0;
-      }
-    });
-    setnewArray(output)
+    const output = data.map(item => <li>{item.childNodes}</li>);
+    console.log(output)
+//     output.sort((a, b) => {
+//       if (b[0].textContent < a[0].textContent) {
+//         console.log(output, "1");
+//         return 1;
+//       } else if (a[0].textContent < b[0].textContent) {
+//         console.log(output, "--1");
+//         return -1;
+//       } else {
+//         // console.log(0);
+//         return 0;
+//       }
+//     });
+//     setnewArray(output)
   }
-console.log(newArray)
+// console.log(newArray)
   return (
     <div className="filter-logic-wrapper">
       {/* WMY = Week / Month/ Year */}
