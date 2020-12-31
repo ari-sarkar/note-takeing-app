@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     //position: relative;
     padding: 10px;
     .note{
@@ -28,18 +28,16 @@
       align-items: center;
       margin-bottom: 5px;
       padding-left: 8px;
-      font-size: 1.1em;
+      font-size: 1em;
       //overflow: scroll;
       div{
         width: 400px;
-        height: 50px;
+        height: 48px;
         overflow: hidden;
-      }
-      p{
-        font-size: 9px;
+        font-size: 1em;
       }
       button{
-        width: 35px;
+        width: 45px;
         height: 100%;
         background-color: red;
         color : whitesmoke;
@@ -54,3 +52,14 @@
   }
 }
 
+.filter-notes{
+  h5{
+    color: rgb(68, 71, 71);
+    font-size: 2.5em;
+  }
+}
+.filter-logic-container{
+  width: 100%;
+  height: 65%;
+  position: relative;
+}

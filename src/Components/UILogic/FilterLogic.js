@@ -31,9 +31,11 @@ const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld
   }, [notelist, weekValue, monthValue, yearValue]);
 
   return (
-    <item className="filter-logic-wrapper">
+    <div className="filter-logic-wrapper">
       {/* WMY = Week / Month/ Year */}
+      <h5>Filter By...</h5>
       <div className="filter-by-WMY">
+      
         <input
           type="number"
           placeholder="Week"
@@ -61,7 +63,7 @@ const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld
       <div>
         {/* {item} */}
       </div>
-    </item>
+    </div>
   );
 };
 

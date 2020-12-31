@@ -100,8 +100,9 @@ console.log(eachNode)
   return (
     <div className="filter-eachnote-container">
       <div className="filter-notes">
-        <h5>Filter By</h5>
+        
         <div className="filter-logic-container">
+        
           <FilterLogic
             notelist={notelist}
             setisClicked={setisClicked}

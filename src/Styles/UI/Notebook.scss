@@ -3,13 +3,13 @@ section {
   height: 100vh;
   //background-color: aliceblue;
   position: relative;
-  h1{
-      position: absolute;
-      top: 2%;
-      left: 10%;
-      font-size: 3em;
-      color: rgb(124, 124, 121);
-      text-transform: uppercase;
+  h1 {
+    position: absolute;
+    top: 2%;
+    left: 10%;
+    font-size: 3em;
+    color: rgb(124, 124, 121);
+    text-transform: uppercase;
   }
   .notebook-container {
     width: 90%;
@@ -45,11 +45,13 @@ section {
             width: 80%;
             height: 2.3rem;
             border-radius: 8px;
+            font-size: 1.2em;
           }
           textarea {
             width: 100%;
             height: 10rem;
             border-radius: 8px;
+            font-size: 1.5em;
           }
           button {
             width: 100px;
@@ -80,19 +82,27 @@ section {
         width: 100%;
         height: 80%;
         background-color: rgb(196, 195, 195);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
-        h2{
-            width: 100%;
-            background-color: rgb(119, 118, 119);
-            text-transform: uppercase;
+        position: relative;
+        h2 {
+          width: 100%;
+          position: absolute;
+          bottom: -8%;
+          left: 12%;
+          font-size: 2.5em;
+          color: rgb(119, 121, 121);
+          //background-color: rgb(119, 118, 119);
+          text-transform: uppercase;
         }
-        .display-notes-logic-container{
-            width: 90%;
-            margin: auto;
-            height: 90%;
-            background-color: rgb(255, 255, 255);
-            //position: relative;
+        .display-notes-logic-container {
+          width: 90%;
+          margin: auto;
+          height: 100%;
+          background-color: rgb(255, 255, 255);
+          //position: relative;
         }
       }
     }
