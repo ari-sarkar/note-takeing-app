@@ -23,7 +23,7 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
       buttonDelete.innerHTML = `<i class="fas fa-trash"></i>`;
 
       buttonDelete.addEventListener("click", () => {
-        //removeLocalNotes(lists)
+        //removeLocalNotes(lists.innerHTML)
         lists.remove();
       });
       lists.appendChild(buttonDelete);
@@ -122,10 +122,10 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
   //     Notes = JSON.parse(localStorage.getItem('Notes'))
   //   }
   //   // localStorage.removeItem(todo)
-  //   //console.log(note.childNodes[1].innerText)
-  //   const noteIndex = note.childNodes[1].innerText
-  //   console.log(noteIndex)
-  //   console.log(Notes.indexOf(noteIndex))
+  //   console.log(note.innerHTML)
+  //   const noteIndex = note.innerHTML
+  //   // console.log(noteIndex)
+  //    console.log(Notes.indexOf(noteIndex))
   //   //const noteIndex = note.childNodes[1].childNodes[0].innerText
   //   //console.log(notes.indexOf(noteIndex.parentElement))
   //   // notes.splice(notes.indexOf(noteIndex),1)
