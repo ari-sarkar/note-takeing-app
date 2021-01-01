@@ -38,7 +38,7 @@ const FilterLogic = ({ notelist,  sortbyNew, sortbyOld}) => {
       
         <input
           type="number"
-          placeholder="Week"
+          placeholder="Date"
           value={weekValue}
           onChange={e => setweekValue(e.target.value)}
         />

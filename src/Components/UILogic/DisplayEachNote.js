@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../../Styles/UILogic/DisplayEachNote.scss";
 import FilterLogic from "./FilterLogic";
-const EachNote = ({
-  title,
-  note,
-  settitle,
-  setnote,
-  setisClicked,
-}) => {
+const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
   const [notelist, setnotelist] = useState("");
-    //Taking Date values by Destructuring
-    let [month, date, year] = new Date().toLocaleDateString("en-US").split("/");
-    let [hour, minute] = new Date().toLocaleTimeString("en-US").split(/:| /);
-    //console.log(month, date, year, hour, minute, second);
+  //Taking Date values by Destructuring
+  let [month, date, year] = new Date().toLocaleDateString("en-US").split("/");
+  let [hour, minute] = new Date().toLocaleTimeString("en-US").split(/:| /);
+  //console.log(month, date, year, hour, minute, second);
 
-    ///Displaying User Input and Delete Button //
+  ///Displaying User Input and Delete Button //
+ 
   useEffect(() => {
     if (note) {
       setisClicked(false);
@@ -22,9 +17,11 @@ const EachNote = ({
       const lists = document.createElement("li");
       lists.classList.add("note");
       lists.innerHTML = `${date}/${month}/${year} ${hour}:${minute}<div className="dateandtime" data-date="${date}" data-month="${month}" data-year=${year} data-hour=${hour} data-minute=${minute} contentEditable="true"><b>${title}:</b> ${note}</div>`;
+
       const buttonDelete = document.createElement("button");
       buttonDelete.classList.add("delete-button");
       buttonDelete.innerHTML = `<i class="fas fa-trash"></i>`;
+
       buttonDelete.addEventListener("click", () => {
         lists.remove();
       });
@@ -52,24 +49,24 @@ const EachNote = ({
 
   ///////////On Button Click Sorting the Data///////////////
   const sortbyNew = e => {
-    const notes = document.querySelector(".note-list");
-    const todos = notes.childNodes;
+    const noteslist = document.querySelector(".note-list");
+    const notes = noteslist.childNodes;
     //   console.log(todos)
-    if (todos) {
-      todos.forEach(todo => {
-          todo.parentElement.style.flexDirection = "column";
+    if (notes) {
+      notes.forEach(note => {
+        note.parentElement.style.flexDirection = "column";
       });
     }
     //console.log(e.target.value)
   };
 
   const sortbyOld = e => {
-    const notes = document.querySelector(".note-list");
-    const todos = notes.childNodes;
+    const noteslist = document.querySelector(".note-list");
+    const notes = noteslist.childNodes;
     //   console.log(todos)
-    if (todos) {
-      todos.forEach(todo => {
-          todo.parentElement.style.flexDirection = "column-reverse";
+    if (notes) {
+      notes.forEach(note => {
+        note.parentElement.style.flexDirection = "column-reverse";
       });
     }
     //console.log(e.target.value)
@@ -78,14 +75,14 @@ const EachNote = ({
 
   return (
     <div className="filter-eachnote-container">
-          <FilterLogic
-            notelist={notelist}
-            setisClicked={setisClicked}
-            title={title}
-            note={note}
-            sortbyNew={sortbyNew}
-            sortbyOld={sortbyOld}
-          />
+      <FilterLogic
+        notelist={notelist}
+        setisClicked={setisClicked}
+        title={title}
+        note={note}
+        sortbyNew={sortbyNew}
+        sortbyOld={sortbyOld}
+      />
       {/* Container to hold Each Note */}
       <ul className="note-list"></ul>
     </div>
