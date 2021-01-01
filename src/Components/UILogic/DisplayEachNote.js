@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
-import "../../Styles/UILogic/EachNote.scss";
-import FilterLogic from "../UILogic/FilterLogic";
+import "../../Styles/UILogic/DisplayEachNote.scss";
+import FilterLogic from "./FilterLogic";
 const EachNote = ({
   title,
   note,
   settitle,
   setnote,
   setisClicked,
-  date,
-  month,
-  year,
-  hour,
-  minute,
 }) => {
   const [notelist, setnotelist] = useState("");
-  const [newArray, setnewArray] = useState([]);
-  //console.log(date, month, year, hour, minute);
+    //Taking Date values by Destructuring
+    let [month, date, year] = new Date().toLocaleDateString("en-US").split("/");
+    let [hour, minute] = new Date().toLocaleTimeString("en-US").split(/:| /);
+    //console.log(month, date, year, hour, minute, second);
+
+    ///Displaying User Input and Delete Button //
   useEffect(() => {
     if (note) {
       setisClicked(false);
-      ///logic //
       const notes = document.querySelector(".note-list");
       const lists = document.createElement("li");
       lists.classList.add("note");
@@ -50,10 +48,9 @@ const EachNote = ({
     setnote,
     settitle,
     notelist,
-    newArray,
   ]);
 
-  ///////////New  Old///////////////
+  ///////////On Button Click Sorting the Data///////////////
   const sortbyNew = e => {
     const notes = document.querySelector(".note-list");
     const todos = notes.childNodes;
@@ -65,6 +62,7 @@ const EachNote = ({
     }
     //console.log(e.target.value)
   };
+
   const sortbyOld = e => {
     const notes = document.querySelector(".note-list");
     const todos = notes.childNodes;
@@ -77,10 +75,9 @@ const EachNote = ({
     //console.log(e.target.value)
   };
   // console.log(newArray,typeof(newArray))
+
   return (
     <div className="filter-eachnote-container">
-      <div className="filter-notes">
-        <div className="filter-logic-container">
           <FilterLogic
             notelist={notelist}
             setisClicked={setisClicked}
@@ -89,13 +86,8 @@ const EachNote = ({
             sortbyNew={sortbyNew}
             sortbyOld={sortbyOld}
           />
-        </div>
-      </div>
+      {/* Container to hold Each Note */}
       <ul className="note-list"></ul>
-      <ul>
-        {/* {console.log(Object.values(newArray).map(item => item))} */}
-        {/* {newArray.map(item =><li>{item}</li>)} */}
-      </ul>
     </div>
   );
 };

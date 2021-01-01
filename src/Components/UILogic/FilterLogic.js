@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../Styles/UILogic/FilterLogic.scss";
-const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld}) => {
+const FilterLogic = ({ notelist,  sortbyNew, sortbyOld}) => {
   const [noteData, setnoteData] = useState([]);
   const [weekValue, setweekValue] = useState("");
   const [monthValue, setmonthValue] = useState("");
@@ -11,7 +11,7 @@ const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld
     const newData = data.map(item => item.childNodes[1]);
     setnoteData(newData);
     //console.log(newData)
-    ////////
+    /////////Logic for Filtering Data by WEEK / MONTH / Year///////////////
     noteData.filter(item => {
       if (weekValue !== "" || monthValue !== "" || yearValue !== "") {
         if (
@@ -28,7 +28,7 @@ const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld
         item.parentNode.style.display = "flex";
       }
     });
-  }, [notelist, weekValue, monthValue, yearValue]);
+  }, [notelist, weekValue, monthValue, yearValue ]);
 
   return (
     <div className="filter-logic-wrapper">
@@ -59,9 +59,6 @@ const FilterLogic = ({ notelist, setisClicked, title, note, sortbyNew, sortbyOld
       <div className="filter-by-NO">
         <button value="asen"onClick={sortbyNew}>New</button>
         <button  onClick={sortbyOld}>Old</button>
-      </div>
-      <div>
-        {/* {item} */}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../Styles/UI/Notebook.scss";
-import EachNote from "../UILogic/EachNote";
+import EachNote from "../UILogic/DisplayEachNote";
 const Notebook = () => {
   const [title, settitle] = useState("");
   const [note, setnote] = useState("");
@@ -9,14 +9,11 @@ const Notebook = () => {
     e.preventDefault();
     setisClicked(true);
   };
-  //Filter Logic
-  let [month, date, year] = new Date().toLocaleDateString("en-US").split("/");
-  let [hour, minute] = new Date().toLocaleTimeString("en-US").split(/:| /);
-  //console.log(month, date, year, hour, minute, second);
   return (
     <section>
       <h1>NoteBook</h1>
       <div className="notebook-container">
+        {/* Take Input From User Section */}
         <div className="left-side-wrapper">
           <div className="write-notes">
             <form>
@@ -40,6 +37,7 @@ const Notebook = () => {
             </form>
           </div>
         </div>
+        {/* Display notes Section */}
         <div className="right-side-wrapper">
           <div className="display-notes">
             <h2>Notes</h2>
@@ -48,11 +46,6 @@ const Notebook = () => {
                 title={isClicked ? title : ""}
                 note={isClicked ? note : ""}
                 setisClicked={setisClicked}
-                month={month}
-                date={date}
-                year={year}
-                hour={hour}
-                minute={minute}
                 settitle={settitle}
                 setnote={setnote}
               />

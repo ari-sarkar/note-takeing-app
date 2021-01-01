@@ -12,7 +12,7 @@ section {
     text-transform: uppercase;
   }
   .notebook-container {
-    width: 90%;
+    width: 100%;
     margin: auto;
     height: 100%;
     //background-color: beige;
@@ -20,7 +20,7 @@ section {
     justify-content: space-around;
     align-items: center;
     .left-side-wrapper {
-      width: 45%;
+      width: 25%;
       height: 80%;
       background-color: rgb(184, 184, 184);
       border-radius: 8px;
@@ -69,7 +69,7 @@ section {
       }
     }
     .right-side-wrapper {
-      width: 45%;
+      width: 65%;
       height: 100%;
       //background-color: rgb(114, 108, 108);
       display: flex;
@@ -98,11 +98,11 @@ section {
           text-transform: uppercase;
         }
         .display-notes-logic-container {
-          width: 90%;
+          width: 98%;
           margin: auto;
           height: 100%;
           background-color: rgb(255, 255, 255);
-          //position: relative;
+          overflow-y: scroll;
         }
       }
     }
