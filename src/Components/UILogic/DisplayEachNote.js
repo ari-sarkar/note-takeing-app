@@ -8,8 +8,8 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
   let [hour, minute] = new Date().toLocaleTimeString("en-US").split(/:| /);
   //console.log(month, date, year, hour, minute, second);
 
-  ///Displaying User Input and Delete Button //
- 
+  ///Displaying User Inputs and Delete Button //
+
   useEffect(() => {
     if (note) {
       setisClicked(false);
@@ -17,12 +17,13 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
       const lists = document.createElement("li");
       lists.classList.add("note");
       lists.innerHTML = `${date}/${month}/${year} ${hour}:${minute}<div className="dateandtime" data-date="${date}" data-month="${month}" data-year=${year} data-hour=${hour} data-minute=${minute} contentEditable="true"><b>${title}:</b> ${note}</div>`;
-
+      //saveLocalNotes(lists.innerHTML);
       const buttonDelete = document.createElement("button");
       buttonDelete.classList.add("delete-button");
       buttonDelete.innerHTML = `<i class="fas fa-trash"></i>`;
 
       buttonDelete.addEventListener("click", () => {
+        //removeLocalNotes(lists)
         lists.remove();
       });
       lists.appendChild(buttonDelete);
@@ -31,7 +32,7 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
       setnotelist(notes.childNodes);
       settitle("");
       setnote("");
-      //console.log(notes.childNodes[0].innerText);
+      //console.log(lists.innerHTML);
     }
   }, [
     setisClicked,
@@ -71,7 +72,67 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
     }
     //console.log(e.target.value)
   };
-  // console.log(newArray,typeof(newArray))
+///////Trying to Add notes to local storage and delete them on click
+
+  // document.addEventListener("DOMContentLoaded", getNotes);
+
+  // function saveLocalNotes(note) {
+  //   let Notes;
+  //   if (localStorage.getItem("Notes") === null) {
+  //     Notes = [];
+  //   } else {
+  //     Notes = JSON.parse(localStorage.getItem("Notes"));
+  //   }
+  //   Notes.push(note);
+  //   localStorage.setItem("Notes", JSON.stringify(Notes));
+  // }
+
+  // function getNotes() {
+  //   let Notes;
+  //   if (localStorage.getItem("Notes") === null) {
+  //     Notes = [];
+  //     //console.log("error while get")
+  //   } else {
+  //     Notes = JSON.parse(localStorage.getItem("Notes"));
+
+  //     //console.log("sucess in get data",Notes)
+  //   }
+  //   Notes.forEach(note => {
+  //     const notes = document.querySelector(".note-list");
+  //     const lists = document.createElement("li");
+  //     lists.classList.add("note");
+  //     lists.innerHTML = note;
+  //     const buttonDelete = document.createElement("button");
+  //     buttonDelete.classList.add("delete-button");
+  //     buttonDelete.innerHTML = `<i class="fas fa-trash"></i>`;
+  //     buttonDelete.addEventListener("click", () => {
+  //       removeLocalNotes(lists)
+  //       lists.remove();
+  //     });
+  //     lists.appendChild(buttonDelete);
+  //     notes.appendChild(lists);
+  //   });
+  // }
+
+  // function removeLocalNotes(note){
+  //   let Notes;
+  //   if(localStorage.getItem('Notes')=== null){
+  //     Notes = []
+  //   }else{
+  //     Notes = JSON.parse(localStorage.getItem('Notes'))
+  //   }
+  //   // localStorage.removeItem(todo)
+  //   //console.log(note.childNodes[1].innerText)
+  //   const noteIndex = note.childNodes[1].innerText
+  //   console.log(noteIndex)
+  //   console.log(Notes.indexOf(noteIndex))
+  //   //const noteIndex = note.childNodes[1].childNodes[0].innerText
+  //   //console.log(notes.indexOf(noteIndex.parentElement))
+  //   // notes.splice(notes.indexOf(noteIndex),1)
+  //   // localStorage.setItem("todos", JSON.stringify(notes))
+ 
+  // }
+
 
   return (
     <div className="filter-eachnote-container">
