@@ -101,6 +101,7 @@ section {
           justify-content: center;
           align-items: center;
           visibility: visible;
+          border-radius: 8px;
         }
         &:hover::after{
           visibility: hidden;
