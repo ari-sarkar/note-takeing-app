@@ -16,7 +16,7 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
       const notes = document.querySelector(".note-list");
       const lists = document.createElement("li");
       lists.classList.add("note");
-      lists.innerHTML = `${date}/${month}/${year} ${hour}:${minute}<div className="dateandtime" data-date="${date}" data-month="${month}" data-year=${year} data-hour=${hour} data-minute=${minute} contentEditable="true"><b>${title}:</b> ${note}</div>`;
+      lists.innerHTML = `Date: ${date}/${month}/${year} Time: ${hour}:${minute}<div className="dateandtime" data-date="${date}" data-month="${month}" data-year=${year} data-hour=${hour} data-minute=${minute} contentEditable="true"><b>${title}:</b> ${note}</div>`;
       //saveLocalNotes(lists.innerHTML);
       const buttonDelete = document.createElement("button");
       buttonDelete.classList.add("delete-button");
@@ -70,7 +70,7 @@ const EachNote = ({ title, note, settitle, setnote, setisClicked }) => {
         note.parentElement.style.flexDirection = "column-reverse";
       });
     }
-    //console.log(e.target.value)
+    console.log(notes)
   };
 ///////Trying to Add notes to local storage and delete them on click
 
