@@ -9,7 +9,8 @@ const FilterLogic = ({ notelist,  sortbyNew, sortbyOld, setMyNotes }) => {
 let noteData = JSON.parse(localStorage.getItem("data"))
     /////////Logic for Filtering Data by WEEK / MONTH / Year///////////////
     let newArr = []
-      noteData.filter(item =>  { 
+
+    noteData &&  noteData.filter(item =>  { 
         const dateandTimeArr = item.timestamp.split("-")
         //console.log(dateandTimeArr)
         if(dateandTimeArr[0] === yearValue || dateandTimeArr[1] === monthValue || dateandTimeArr[2] === weekValue){
