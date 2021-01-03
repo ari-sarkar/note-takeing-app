@@ -1,35 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "../../Styles/UILogic/FilterLogic.scss";
-const FilterLogic = ({ notelist,  sortbyNew, sortbyOld}) => {
-  const [noteData, setnoteData] = useState([]);
-  const [weekValue, setweekValue] = useState("");
-  const [monthValue, setmonthValue] = useState("");
-  const [yearValue, setyearValue] = useState("");
+const FilterLogic = ({ notelist,  sortbyNew, sortbyOld, setMyNotes }) => {
+  const [weekValue, setweekValue] = useState(null);
+  const [monthValue, setmonthValue] = useState(null);
+  const [yearValue, setyearValue] = useState(null);
   
   useEffect(() => {
-    const data = [...notelist];
-    const newData = data.map(item => item.childNodes[1]);
-    setnoteData(newData);
-    //console.log(newData)
+let noteData = JSON.parse(localStorage.getItem("data"))
     /////////Logic for Filtering Data by WEEK / MONTH / Year///////////////
-    noteData.filter(item => {
-      if (weekValue !== "" || monthValue !== "" || yearValue !== "") {
-        if (
-          item.getAttribute("data-date") !== weekValue &&
-          item.getAttribute("data-month") !== monthValue &&
-          item.getAttribute("data-year") !== yearValue
-        ) {
-          //console.log(item)
-          item.parentNode.style.display = "none";
-        } else {
-          item.parentNode.style.display = "flex";
+    let newArr = []
+      noteData.filter(item =>  { 
+        const dateandTimeArr = item.timestamp.split("-")
+        //console.log(dateandTimeArr)
+        if(dateandTimeArr[0] === yearValue || dateandTimeArr[1] === monthValue || dateandTimeArr[2] === weekValue){
+          if(newArr) newArr.push(item)
+          setMyNotes(newArr)
         }
-      } else {
-        item.parentNode.style.display = "flex";
-      }
-    });
-  }, [notelist, weekValue, monthValue, yearValue ]);
-
+      });
+     
+  }, [ setMyNotes,weekValue, monthValue, yearValue ]);
   return (
     <div className="filter-logic-wrapper">
       {/* WMY = Week / Month/ Year */}

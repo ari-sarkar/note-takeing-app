@@ -5,8 +5,18 @@ const Notebook = () => {
   const [title, settitle] = useState("");
   const [note, setnote] = useState("");
   const [isClicked, setisClicked] = useState(false);
+  const [dateTime, setDateTime] = useState("0000-0000-00");
   const AddNote = e => {
-    e.preventDefault();
+    //e.preventDefault();
+    let arr = []
+    if (localStorage.getItem('data')) {
+      let dataArr = JSON.parse(localStorage.getItem('data'))
+      if (dataArr) dataArr.push({title: title, note: note, timestamp: dateTime})
+      localStorage.setItem('data', JSON.stringify(dataArr))
+    } else {
+      arr.push({title: title, note: note, timestamp: dateTime})
+      localStorage.setItem('data', JSON.stringify(arr))
+    }
     setisClicked(true);
   };
   return (
@@ -26,6 +36,7 @@ const Notebook = () => {
               <br />
               <label>Write Notes</label>
               <br />
+              <input type="date" value={dateTime} onChange={e => setDateTime(e.target.value)}></input>
               <textarea
                 type="text"
                 onChange={e => setnote(e.target.value)}
